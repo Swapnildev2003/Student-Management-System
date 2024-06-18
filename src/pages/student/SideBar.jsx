@@ -20,7 +20,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
 import Grid from "./Grid";
 import Dropdown from "./Dropdown"
-
+import Pie from "../../assets/charts/piechart"
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -113,7 +113,7 @@ export default function PersistentDrawerLeft() {
             Student Profile
           </Typography>
           <div style={{ marginLeft: "auto", padding: "10px 5px 2px 5px", backgroundColor: "white", borderRadius: "5px", height: 63, width: 150 }}>
-          <Dropdown/>
+            <Dropdown />
           </div>
         </Toolbar>
       </AppBar>
@@ -173,10 +173,14 @@ export default function PersistentDrawerLeft() {
         <DrawerHeader />
 
         <div style={{ display: "flex", gap: "5px" }}>
-          <Grid />
-          <Grid />
-          <Grid />
-          <Grid />
+          <Grid title={"Attended"} value={"0"} />
+          <Grid title={"Total Classes"} value={"0"} />
+          <Grid title={"Total Score"} value={"0"} />
+          <Grid title={"Complain Raised"} value={"0"} />
+        </div>
+        <div style={{ display: "flex", gap: "5px" }}>
+          <div><Pie /></div>
+          <div></div>
         </div>
       </Main>
     </Box>
