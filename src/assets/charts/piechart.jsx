@@ -9,6 +9,7 @@ const data = [
 
 export default function PieActiveArc() {
     return (
+
         <PieChart
             series={[
                 {
@@ -17,8 +18,10 @@ export default function PieActiveArc() {
                     faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
                 },
             ]}
-            height={200}
-            width={500}
+            height={400}
+            width={400}
+
+
         />
     );
 }
