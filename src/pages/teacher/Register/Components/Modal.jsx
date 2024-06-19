@@ -32,7 +32,9 @@ const inputStyle = {
   borderRadius: "5px",
   padding: "10px",
   outlineColor: "#40A2E3",
-
+  overflow: "hidden",
+  resize: "none",
+  fontFamily: ""
 }
 
 export default function BasicModal({ open, setOpen, modalTitle, dummyObj, setDummyObj, setRefreshData, addUser, notifySuccess, clickUpdate, updateInput,updateUser, notifySuccessUpdate }) {
@@ -43,6 +45,7 @@ export default function BasicModal({ open, setOpen, modalTitle, dummyObj, setDum
   //   console.log(dummyObj)
   // }
 
+  
 
 
   return (
@@ -96,6 +99,7 @@ export default function BasicModal({ open, setOpen, modalTitle, dummyObj, setDum
                 <textarea
                   placeholder="Email..."
                   variant="soft"
+                  type="email"
                   style={inputStyle}
                   onChange={e => setDummyObj({ ...dummyObj, email: e.target.value })}
                 >{clickUpdate ? updateInput.email : ""}</textarea>

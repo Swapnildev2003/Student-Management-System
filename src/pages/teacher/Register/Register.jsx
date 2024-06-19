@@ -51,11 +51,11 @@ const Register = ({ open }) => {
         <>
             <Main open={open}>
                 <DrawerHeader />
-                <div style={{ display: "flex", justifyContent: "space-between" }} >
+                {/* <div style={{ display: "flex", justifyContent: "space-between" }} >
                     <Attendence drop={course} name="course" setTagName={setTagName} />
                     <Attendence drop={branch} name="branch" setTagName={setTagName} />
                     <Attendence drop={year} name="year" setTagName={setTagName} />
-                </div>
+                </div> */}
                 {/* <ReactScheduler /> */}
                 <Table />
             </Main>
