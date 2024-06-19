@@ -23,3 +23,8 @@ Install the dx-react-scheduler package and its dependencies using the following 
 # Material-UI package for react-scheduler
 
 * npm i --save @devexpress/dx-react-scheduler-material-ui
+
+
+# React calender dependency
+
+* npm install @mui/x-date-pickers@latest
