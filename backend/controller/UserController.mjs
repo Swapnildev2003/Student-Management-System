@@ -64,7 +64,7 @@ const importUser = async (req, res) => {
     }
 }
 const addAttendence = async (req, res) => {
-  
+
     const { id } = req.body;
 
     if (!id) {
@@ -104,8 +104,7 @@ const addAttendence = async (req, res) => {
         console.error(error);
         return res.status(500).json({ message: 'Server error' });
     }
-    };
-    
+};
 
 
 
@@ -115,8 +114,9 @@ const addAttendence = async (req, res) => {
 
 
 
-    const removeAttendence = async (req, res) => {
-        const { id } = req.body;
+
+const removeAttendence = async (req, res) => {
+    const { id } = req.body;
 
     if (!id) {
         return res.status(400).json({ message: 'ID is required' });
@@ -139,21 +139,27 @@ const addAttendence = async (req, res) => {
         });
 
         if (!attendance) {
-            return res.status(404).json({ message: 'Attendance record not found for the given date' });
+            const newAttendance = {
+                dateTime: new Date(),
+                present: 0
+            };
+            user.attendance.push(newAttendance);
+            await user.save();
+            return res.status(404).json({ message: 'Student has been marked absent' });
         }
 
         attendance.present = 0;
 
         await user.save();
 
-        return res.status(200).json({ message: 'Attendance status updated successfully', attendance });
+        return res.status(200).json({ message: 'Student has been marked absent', attendance });
     } catch (error) {
         console.error(error);
         return res.status(500).json({ message: 'Server error' });
     }
 };
 
-    
 
 
-export { Createuser, GetUsers, UpdateUser, DeleteUser, importUser ,addAttendence,removeAttendence}
+
+export { Createuser, GetUsers, UpdateUser, DeleteUser, importUser, addAttendence, removeAttendence }
