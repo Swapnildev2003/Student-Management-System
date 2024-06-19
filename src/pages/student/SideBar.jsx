@@ -180,6 +180,7 @@ export default function PersistentDrawerLeft() {
           <Grid title={"Total Score"} value={"0"} />
           <Grid title={"Complain Raised"} value={"0"} />
         </div>
+
         <div style={{ display: "flex", gap: "5px", marginTop: "40px", padding: "0 51px 0 51px" }}>
           <div style={{ width: "30%", padding: "32px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}>
             <div style={{ fontSize: "1.5em", textAlign: "center", fontWeight: "bold" }}>
@@ -192,14 +193,28 @@ export default function PersistentDrawerLeft() {
               <div style={{ fontWeight: "bold" }}>Present :<span>0</span></div>
               <div style={{ fontWeight: "bold" }}>Absent: <span>0</span></div>
             </div>
-
           </div>
-          <div style={{ width: "70%", display: "flex", justifyContent: "left", alignItems: "center", marginLeft: "32px" }}><Barchart /></div>
+
+          <div style={{ width: "70%", display: "flex", justifyContent: "left", alignItems: "center", marginLeft: "32px" }}>
+            <Barchart />
+          </div>
         </div>
+
+
         <div style={{ display: "flex", gap: "5px", marginTop: "40px", justifyContent: "space-between", padding: "0 35px 0 35px" }}>
 
-          <div style={{ width: "70%", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px", padding: "20px 0 0 20px", fontSize: "1.5em", fontWeight: "bold" }}>Notice Board</div>
-          <div style={{ marginLeft: "50px", width: "30%", display: "flex", justifyContent: "center", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}><Calendar /></div>
+          <div style={{ width: "70%", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px", padding: "20px 0 0 20px", fontSize: "1.5em", fontWeight: "bold" }}>
+            <div style={{ width: "100%", padding: "10px" }}>
+              <span>Notice Board</span>
+            </div>
+            <div>
+              
+            </div>
+          </div>
+
+          <div style={{ marginLeft: "50px", width: "30%", display: "flex", justifyContent: "center", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}>
+            <Calendar />
+          </div>
         </div>
       </Main>
     </Box>
