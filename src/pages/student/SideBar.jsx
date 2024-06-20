@@ -23,6 +23,11 @@ import Dropdown from "./dashboard/Dropdown"
 import Pie from "../../assets/charts/piechart"
 import Barchart from "../../assets/charts/barchart"
 import Calendar from "../../assets/charts/calendar"
+import AddIcon from '@mui/icons-material/Add';
+import { Button } from "@mui/material";
+import NoticeBoard from "./dashboard/NoticeBoard"
+import './dashboard/scrollBar.css'
+
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -181,12 +186,32 @@ export default function PersistentDrawerLeft() {
           <Grid title={"Complain Raised"} value={"0"} />
         </div>
 
-        <div style={{ display: "flex", gap: "5px", marginTop: "40px", padding: "0 51px 0 51px" }}>
-          <div style={{ width: "30%", padding: "32px", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}>
-            <div style={{ fontSize: "1.5em", textAlign: "center", fontWeight: "bold" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "5px",
+            marginTop: "40px",
+            padding: "0 51px 0 51px"
+          }}>
+          <div
+            style={{
+              width: "30%",
+              padding: "32px",
+              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            }}>
+            <div
+              style={{
+                fontSize: "1.5em",
+                textAlign: "center",
+                fontWeight: "bold"
+              }}>
               Attendence Status
             </div>
-            <div style={{ display: "flex", justifyContent: 'center', }}>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: 'center'
+              }}>
               <Pie />
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -201,19 +226,60 @@ export default function PersistentDrawerLeft() {
         </div>
 
 
-        <div style={{ display: "flex", gap: "5px", marginTop: "40px", justifyContent: "space-between", padding: "0 35px 0 35px" }}>
+        <div
+          style={{
+            display: "flex",
+            gap: "5px",
+            marginTop: "40px",
+            justifyContent: "space-between",
+            padding: "0 35px 0 35px"
+          }}>
 
-          <div style={{ width: "70%", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px", padding: "20px 0 0 20px", fontSize: "1.5em", fontWeight: "bold" }}>
-            <div style={{ width: "100%", padding: "10px" }}>
+          <div
+            className="notice-board"
+            style={{
+              width: "70%",
+              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+              fontSize: "1.5em",
+              fontWeight: "bold",
+              height: "20em",
+              overflow: "scroll",
+              overflowX: "hidden"
+
+            }}>
+            <div
+              style={{
+                width: "100%",
+                padding: "10px",
+                display: "flex",
+                justifyContent: "space-between",
+                position: 'sticky',
+                top: 0,
+                backdropFilter: "blur(10px)"
+              }}>
               <span>Notice Board</span>
+              <Button
+                style={{ maxWidth: "35px", minWidth: "35px" }}
+                color="primary"
+                variant="contained"
+              >
+                <AddIcon />
+              </Button>
             </div>
-            <div>
-              
+            <div >
+              <NoticeBoard />
             </div>
           </div>
 
-          <div style={{ marginLeft: "50px", width: "30%", display: "flex", justifyContent: "center", boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px" }}>
-            <Calendar />
+          <div
+            style={{
+              marginLeft: "50px",
+              width: "30%",
+              display: "flex",
+              justifyContent: "center",
+              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+            }}>
+              <Calendar />
           </div>
         </div>
       </Main>

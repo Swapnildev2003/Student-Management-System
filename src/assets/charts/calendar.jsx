@@ -9,7 +9,7 @@ export default function DateCalendarValue() {
     const [value, setValue] = React.useState(dayjs('2022-04-17'));
 
     return (
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <LocalizationProvider  dateAdapter={AdapterDayjs}>
             <DemoContainer components={['DateCalendar', 'DateCalendar']}>
 
                 <DemoItem label="Event calendar">

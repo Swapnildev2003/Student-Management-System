@@ -1,0 +1,37 @@
+/* Custom scrollbar for the notice board */
+.notice-board {
+    scrollbar-width: 10px; /* Firefox */
+    scrollbar-color: rgb(81, 80, 80); /* Firefox */
+    overflow: scroll; /* Ensure it scrolls */
+    position: relative;
+  }
+  
+  /* Hide scrollbar initially for Webkit browsers */
+  .notice-board::-webkit-scrollbar {
+    width: 10px;
+    transition:  0.3s;
+  }
+  
+  /* Show scrollbar on hover for Webkit browsers */
+  .notice-board:hover::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background: #f1f1f1;
+  }
+  
+  /* Custom thumb style */
+  .notice-board::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+  }
+  
+  /* Hover effect for the thumb */
+  .notice-board::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+  /* Remove upper and lower buttons for vertical scrollbar */
+  .notice-board::-webkit-scrollbar-button {
+    display: none;
+  }
+  
