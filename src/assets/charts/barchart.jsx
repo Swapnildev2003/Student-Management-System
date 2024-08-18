@@ -10,7 +10,6 @@ const xLabels = [
     'Thur',
     'Fri',
     'Sat',
-
 ];
 
 export default function SimpleBarChart() {
@@ -20,10 +19,10 @@ export default function SimpleBarChart() {
                 width={900}
                 height={500}
                 series={[
-                    { data: pData, label: 'ab', id: 'pvId', color: "red" },
-                    { data: uData, label: 'pr', id: 'uvId', color: "#059212" },
+                    { data: pData, label: 'ab', id: 'pvId', color: "#4C8CF8" },
+                    { data: uData, label: 'pr', id: 'uvId', color: "#1FE6D1" },
                 ]}
-                xAxis={[{ data: xLabels, scaleType: 'band' }]}
+                xAxis={[{ data: xLabels, scaleType: 'band' }]} 
             />
         </div>
     );

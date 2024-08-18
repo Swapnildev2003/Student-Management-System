@@ -9,6 +9,8 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import { useEffect, useState } from 'react';
 import CheckBox from './Checkbox';
+import { Link, Route, Routes } from 'react-router-dom';
+import { Dashboard } from '@mui/icons-material';
 
 const columns = [
   {
@@ -52,7 +54,7 @@ const columns = [
     align: 'center',
     format: (value) => value.toLocaleString('en-US'),
     render: (value) => (
-      <span style={{ color: value === 'present' ? 'green' : value === 'absent' ? 'red' : 'black'}}>
+      <span style={{ color: value === 'present' ? 'green' : value === 'absent' ? 'red' : 'black' }}>
 
         {value}
       </span>
@@ -65,7 +67,8 @@ export default function ColumnGroupingTable() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [list, setList] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [statuses, setStatuses] = useState({}); // State to track statuses
+  const [statuses, setStatuses] = useState({});
+  const [dashboardId, setDashboardId] = useState();
 
   const rows = list.map((item) => ({
     _id: item._id,
@@ -76,6 +79,8 @@ export default function ColumnGroupingTable() {
     attendance: Array.isArray(item.attendance) ? item.attendance.join(', ') : '', // Check if 'attendance' is an array
     status: statuses[item.id] || "pending", // Use status from state or default to "pending"
   }));
+
+  dashboardId && console.log(dashboardId);
 
   const handleChangePage = (event, newPage) => setPage(newPage);
 
@@ -142,16 +147,18 @@ export default function ColumnGroupingTable() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row, index) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.id} >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (
-                        <TableCell key={column.id} align={column.align}>
+                        <TableCell key={column.id} align={column.align} onClick={() => {
+                          setDashboardId(row)
+                        }}>
                           {column.render
                             ? column.render(value, row, index, handleCheckboxChange, statuses)
                             : column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
+                              ? column.format(value)
+                              : value}
                         </TableCell>
                       );
                     })}
@@ -170,6 +177,9 @@ export default function ColumnGroupingTable() {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+      <Routes>
+          <Route path="/dashboard" element={<Dashboard open={open} />} />
+        </Routes>
     </Paper>
   );
 }

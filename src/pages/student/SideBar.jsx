@@ -193,12 +193,17 @@ export default function PersistentDrawerLeft() {
             marginTop: "40px",
             padding: "0 51px 0 51px"
           }}>
+
           <div
             style={{
               width: "30%",
-              padding: "32px",
-              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px"
+              // padding: "32px",
+              boxShadow: "rgba(99, 99, 99, 0.2) 0px 2px 8px 0px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
             }}>
+
             <div
               style={{
                 fontSize: "1.5em",
@@ -207,16 +212,18 @@ export default function PersistentDrawerLeft() {
               }}>
               Attendence Status
             </div>
+
             <div
               style={{
                 display: "flex",
-                justifyContent: 'center'
+                justifyContent: 'center',
               }}>
-              <Pie />
+              <Pie style={{marginLeft: 12}} />
             </div>
+
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <div style={{ fontWeight: "bold" }}>Present :<span>0</span></div>
-              <div style={{ fontWeight: "bold" }}>Absent: <span>0</span></div>
+              <div style={{ fontWeight: "bold", color: "#4C8CF8" }}>Present :<span>0</span></div>
+              <div style={{ fontWeight: "bold", color: "#1FE6D1" }}>Absent: <span>0</span></div>
             </div>
           </div>
 
@@ -244,7 +251,8 @@ export default function PersistentDrawerLeft() {
               fontWeight: "bold",
               height: "20em",
               overflow: "scroll",
-              overflowX: "hidden"
+              overflowX: "hidden",
+              marginLeft: "18px"
 
             }}>
             <div
