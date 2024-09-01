@@ -18,15 +18,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import Grid from "./dashboard/Grid";
+
 import Dropdown from "./dashboard/Dropdown"
 import Pie from "../../assets/charts/piechart"
 import Barchart from "../../assets/charts/barchart"
 import Calendar from "../../assets/charts/calendar"
 import AddIcon from '@mui/icons-material/Add';
 import { Button } from "@mui/material";
-import NoticeBoard from "./dashboard/NoticeBoard"
-import './dashboard/scrollBar.css'
+import NoticeBoard from "../Admin/components/NoticeBoard"
+import '../Admin/style/scrollBar.css'
 
 const drawerWidth = 240;
 

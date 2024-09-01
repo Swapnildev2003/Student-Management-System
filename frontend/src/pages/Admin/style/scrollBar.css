@@ -1,6 +1,6 @@
 /* Custom scrollbar for the notice board */
 .notice-board {
-    scrollbar-width: 10px; /* Firefox */
+    scrollbar-width: 11px; /* Firefox */
     scrollbar-color: rgb(81, 80, 80); /* Firefox */
     overflow: scroll; /* Ensure it scrolls */
     position: relative;
@@ -8,13 +8,13 @@
   
   /* Hide scrollbar initially for Webkit browsers */
   .notice-board::-webkit-scrollbar {
-    width: 10px;
+    width: 11px;
     transition:  0.3s;
   }
   
   /* Show scrollbar on hover for Webkit browsers */
   .notice-board:hover::-webkit-scrollbar {
-    width: 10px;
+    width: 11px;
     height: 10px;
     background: #f1f1f1;
   }
