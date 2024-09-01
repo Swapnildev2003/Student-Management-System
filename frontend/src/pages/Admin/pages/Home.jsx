@@ -20,13 +20,10 @@ const style = {
 }
 
 const Home = () => {
-  const [displayModel, setDisplayModel] = React.useState(false);
 
   return (
     <>
-       {displayModel ? 
-        <div className="min-h-screen"><HomeDiscriptionModel /></div>
-        :
+      {/* <div className="min-h-screen"><HomeDiscriptionModel /></div> */}
 
       <Box>
         <section style={{ display: "flex", gap: "5px" }} >
@@ -72,7 +69,6 @@ const Home = () => {
           </div>
         </section>
       </Box>
-       }
     </>
   );
 }

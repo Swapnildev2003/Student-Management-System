@@ -13,6 +13,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SideBarList from './components/SideBarList';
 import Home from './pages/Home'
+import MenuBar from  "./components/MenuBar"
 
 const drawerWidth = 240;
 
@@ -108,7 +109,7 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex', overflowY: "hidden",scrollbarWidth: "none" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -128,7 +129,9 @@ export default function MiniDrawer() {
             Admin Panel
           </Typography>
         </Toolbar>
+        <MenuBar/>
       </AppBar>
+
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
