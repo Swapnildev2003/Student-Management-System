@@ -20,14 +20,20 @@ const style = {
 }
 
 const Home = () => {
+  const [displayModel, setDisplayModel] = React.useState(false);
+  const toggleModal = () => {
+    setDisplayModel(prevState => !prevState);
+};
 
   return (
     <>
-      {/* <div className="min-h-screen"><HomeDiscriptionModel /></div> */}
+       {displayModel && ( 
+        <div className="min-h-screen absolute w-full z-40 backdrop-blur-sm"><HomeDiscriptionModel /></div>
+       )}
 
       <Box>
         <section style={{ display: "flex", gap: "5px" }} >
-          <div style={style} onClick={(prev) => !prev}><Grid title={"Total Student"} value={"0"} /></div>
+          <div style={style} onClick={toggleModal}><Grid title={"Total Student"} value={"0"} /></div>
           <div style={style} onClick={() => con(2)}><Grid title={"Total Classes"} value={"0"} /></div>
           <div style={style} onClick={() => con(3)}><Grid title={"Total Teachers"} value={"0"} /></div>
           <div style={style} onClick={() => con(4)}><Grid title={"Complain Raised"} value={"0"} /></div>
@@ -69,6 +75,7 @@ const Home = () => {
           </div>
         </section>
       </Box>
+       
     </>
   );
 }
