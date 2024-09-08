@@ -3,7 +3,7 @@ import Grid from "../components/Grid";
 import { Box, Button } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import NoticeBoard from "../components/NoticeBoard"
-import HomeDiscriptionModel from "../components/HomeDiscriptionModel"
+import BasicModal from "../components/HomeDiscriptionModel"
 import '../style/scrollBar.css'
 
 const style = {
@@ -21,15 +21,17 @@ const style = {
 
 const Home = () => {
   const [displayModel, setDisplayModel] = React.useState(false);
+
   const toggleModal = () => {
     setDisplayModel(prevState => !prevState);
-};
+  };
 
   return (
     <>
-       {displayModel && ( 
-        <div className="min-h-screen absolute w-full z-40 backdrop-blur-sm"><HomeDiscriptionModel /></div>
-       )}
+      {displayModel && (
+         <div className="min-h-screen absolute w-full z-40 backdrop-blur-sm "><BasicModal displayModel={displayModel} setDisplayModel={setDisplayModel} /></div>
+        
+      )}
 
       <Box>
         <section style={{ display: "flex", gap: "5px" }} >
@@ -75,7 +77,6 @@ const Home = () => {
           </div>
         </section>
       </Box>
-       
     </>
   );
 }

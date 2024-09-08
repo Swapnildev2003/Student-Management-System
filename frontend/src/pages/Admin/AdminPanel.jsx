@@ -97,6 +97,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
+  
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -153,10 +154,10 @@ export default function MiniDrawer() {
           <SideBarList primary={"Logout"} open={open} />
         </Drawer>
 
-        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-          <DrawerHeader />
-          <Teachers />
-        </Box>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <DrawerHeader />
+        <Home />
       </Box>
+    </Box>
   );
 }
