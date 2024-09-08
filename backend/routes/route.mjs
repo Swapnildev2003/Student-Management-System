@@ -20,11 +20,18 @@ var upload = multer({ storage: storage });
 routers.post('/importUser', upload.single('file'),)
 routers.use(bodyParser.urlencoded({ extended: true }));
 routers.use(express.static(path.resolve(__dirname, "public")));
-routers.post('/create', Createuser)
-routers.get('/get', GetUsers);
-routers.post('/update/:id', UpdateUser);
-routers.post('/deleteUser/:id', DeleteUser);
-routers.post('/importUser', importUser)
-routers.post('/addAttendence',addAttendence)
-routers.post('/removeAttendence',removeAttendence)
+routers.post('/createStudent', Createuser)
+routers.get('/getStudent', GetUsers);
+routers.post('/updateStudent/:id', UpdateUser);
+routers.post('/deleteUserStudent/:id', DeleteUser);
+routers.post('/importUserStudent', importUser)
+routers.post('/addAttendenceStudent',addAttendence)
+routers.post('/removeAttendenceStudent',removeAttendence)
+
+routers.post('/createTeacher', Createuser) 
+routers.get('/getTeacher', GetUsers);
+routers.post('/updateTeacher/:id', UpdateUser);
+routers.post('/deleteTeacher/:id', DeleteUser);
+routers.post('/importUserStudent', importUser)
+
 export default routers;
