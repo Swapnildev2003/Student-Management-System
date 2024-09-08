@@ -1,4 +1,7 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
+
+// Imports From Material UI
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,12 +11,13 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Button from '@mui/material/Button';
-import Modal from '../../../Admin/components/Modal';
-import { useEffect, useState } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import ConfirmBox from '../../../Admin/components/ConfirmBox';
-import DummyObject from './newUserClass';
+
+//Imports From Others
+import ConfirmBox from './ConfirmBox';
+import Modal from './Modal';
+import DummyObject from '../../teacher/Register/Components/newUserClass';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,7 +42,7 @@ const columns = [
   },
   {
     id: 'phone',
-    label: 'Phone',
+    label: 'Deapartment',
     minWidth: 170,
     align: 'center',
     format: (value) => value.toLocaleString('en-US'),

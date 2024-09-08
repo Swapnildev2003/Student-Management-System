@@ -13,7 +13,9 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SideBarList from './components/SideBarList';
 import Home from './pages/Home'
-import MenuBar from  "./components/MenuBar"
+import MenuBar from "./components/MenuBar"
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Teachers from './pages/Teachers';
 
 const drawerWidth = 240;
 
@@ -107,54 +109,54 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: 'flex', overflowY: "hidden",scrollbarWidth: "none" }}>
-      <CssBaseline />
-      <AppBar position="fixed" open={open} style={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={[
-              {
-                marginRight: 5,
-              },
-              open && { display: 'none' },
-            ]}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Admin Panel
-          </Typography>
-        </Toolbar>
-        <MenuBar/>
-      </AppBar>
+      <Box sx={{ display: 'flex', overflowY: "hidden", scrollbarWidth: "none" }}>
+        <CssBaseline />
+        <AppBar position="fixed" open={open} style={{ display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              sx={[
+                {
+                  marginRight: 5,
+                },
+                open && { display: 'none' },
+              ]}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Admin Panel
+            </Typography>
+          </Toolbar>
+          <MenuBar />
+        </AppBar>
 
-      <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </DrawerHeader>
-        <Divider />
-        <SideBarList primary={"Home"} open={open} style={{padding:0, margin:0}} />
-        <SideBarList primary={"Classes"} open={open} />
-        <SideBarList primary={"Subjects"} open={open} />
-        <SideBarList primary={"teachers"} open={open} />
-        <SideBarList primary={"Students"} open={open} />
-        <SideBarList primary={"Notices"} open={open} />
-        <SideBarList primary={"Complains"} open={open} />
-        <Divider />
-        <SideBarList primary={"Profile"} open={open} />
-        <SideBarList primary={"Logout"} open={open} />
-      </Drawer>
+        <Drawer variant="permanent" open={open}>
+          <DrawerHeader>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </DrawerHeader>
+          <Divider />
+          <SideBarList primary={"Home"} open={open} style={{ padding: 0, margin: 0 }} />
+          <SideBarList primary={"Classes"} open={open} />
+          <SideBarList primary={"Subjects"} open={open} />
+          <SideBarList primary={"teachers"} open={open} />
+          <SideBarList primary={"Students"} open={open} />
+          <SideBarList primary={"Notices"} open={open} />
+          <SideBarList primary={"Complains"} open={open} />
+          <Divider />
+          <SideBarList primary={"Profile"} open={open} />
+          <SideBarList primary={"Logout"} open={open} />
+        </Drawer>
 
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-        <Home />
+        <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+          <DrawerHeader />
+          <Teachers />
+        </Box>
       </Box>
-    </Box>
   );
 }
