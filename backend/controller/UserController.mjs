@@ -1,4 +1,4 @@
-import UserModels from "../models/BCA.mjs"
+import { UserModels } from '../models/BCA.mjs'
 
 const Createuser = async (req, res) => {
     try {
