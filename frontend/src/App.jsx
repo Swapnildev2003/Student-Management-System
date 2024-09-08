@@ -11,12 +11,13 @@ function App() {
   return (
     <>
       <div>
-        <TeacherPanel />
+        {/* <TeacherPanel /> */}
         {/* <AdminPanel /> */}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<AdminPanel />} />
             <Route path="/dashboard" element={<StudentPanel />} />
+            <Route path="/teachers" element={<Teachers />} />
           </Routes>
         </BrowserRouter>
       </div>

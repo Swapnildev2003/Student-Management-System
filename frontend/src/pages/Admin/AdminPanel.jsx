@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+// Import From Material UI
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import MuiDrawer from '@mui/material/Drawer';
@@ -11,11 +13,14 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
+// Import From Other
 import SideBarList from './components/SideBarList';
 import Home from './pages/Home'
 import MenuBar from "./components/MenuBar"
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Teachers from './pages/Teachers';
+import Classes from './pages/Classes'
 
 const drawerWidth = 240;
 
@@ -145,7 +150,7 @@ export default function MiniDrawer() {
           <SideBarList primary={"Home"} open={open} style={{ padding: 0, margin: 0 }} />
           <SideBarList primary={"Classes"} open={open} />
           <SideBarList primary={"Subjects"} open={open} />
-          <SideBarList primary={"teachers"} open={open} />
+          <SideBarList primary={"Teachers"} open={open} />
           <SideBarList primary={"Students"} open={open} />
           <SideBarList primary={"Notices"} open={open} />
           <SideBarList primary={"Complains"} open={open} />
@@ -156,7 +161,9 @@ export default function MiniDrawer() {
 
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Home />
+        {/* <Home /> */}
+        {/* <Teachers /> */}
+        <Classes />
       </Box>
     </Box>
   );

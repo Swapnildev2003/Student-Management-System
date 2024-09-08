@@ -30,7 +30,7 @@ const inputStyle = {
   backgroundColor: "#EEEDEB",
   border: "none",
   borderRadius: "5px",
-  padding: "10px",
+  padding: "3px 10px 10px 10px",
   outlineColor: "#40A2E3",
   overflow: "hidden",
   resize: "none",

@@ -140,7 +140,7 @@ export default function ColumnGroupingTable() {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        setLoading(false);// Set loading to false regardless of success or failure
+        setLoading(false);
 
       }
     };
@@ -156,10 +156,8 @@ export default function ColumnGroupingTable() {
         }
       });
       if (res.ok) {
-        // Response status is in the 2xx range
-        const data = await res.json(); // Log the response data
+        const data = await res.json();
       } else {
-        // Response status is not in the 2xx range, handle error
         throw new Error('Failed to delete user');
       }
     } catch (error) {
@@ -188,7 +186,7 @@ export default function ColumnGroupingTable() {
       body: JSON.stringify({
         id: dummyObj.id,
         name: dummyObj.name,
-        email: dummyObj.email, // Use the message state instead
+        email: dummyObj.email,
         phone: dummyObj.phone,
 
       }),
@@ -205,7 +203,7 @@ export default function ColumnGroupingTable() {
       body: JSON.stringify({
         id: dummyObj.id ? dummyObj.id : updateInput.id,
         name: dummyObj.name ? dummyObj.name : updateInput.name,
-        email: dummyObj.email ? dummyObj.email : updateInput.email, // Use the message state instead
+        email: dummyObj.email ? dummyObj.email : updateInput.email,
         phone: dummyObj.phone ? dummyObj.phone : updateInput.phone,
       }),
     });
@@ -229,6 +227,7 @@ export default function ColumnGroupingTable() {
                 <Button onClick={() => { handleOpen(false); setClickUpdate(false) }} color="secondary">Add Student</Button>
               </TableCell>
             </TableRow>
+            
             <TableRow>
               {columns.map((column) => (
                 <TableCell
@@ -241,6 +240,7 @@ export default function ColumnGroupingTable() {
               ))}
             </TableRow>
           </TableHead>
+
           <TableBody>
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
@@ -275,6 +275,7 @@ export default function ColumnGroupingTable() {
           </TableBody>
         </Table>
       </TableContainer>
+
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
@@ -284,9 +285,11 @@ export default function ColumnGroupingTable() {
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+
       <Modal open={open} setOpen={setOpen} modalTitle={modalTitle} dummyObj={dummyObj} setDummyObj={setDummyObj} setRefreshData={setRefreshData} notifySuccess={notifySuccess} addUser={addUser} updateUser={updateUser} clickUpdate={clickUpdate} updateInput={updateInput} userId={userId} notifySuccessUpdate={notifySuccessUpdate} />
 
       <ConfirmBox openConfirm={openConfirm} handleOpenConfirm={handleOpenConfirm} setOpenConfirm={setOpenConfirm} indexPassing={indexPassing} deleteCurrent={deleteCurrent} notifyError={notifyError} list={list} userId={userId} />
+
       <ToastContainer />
     </Paper>
   );
