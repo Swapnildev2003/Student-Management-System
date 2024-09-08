@@ -38,35 +38,56 @@ const rows = [
   createData('Electrical Engg.	','EEE'	,'3th'	,'C'	,262),
   createData('Civil Engineering',	'CE'	,'4th'	,'D'	,305),
   createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
+  createData('Information Tech',	'IT'	,'1th'	,'E'	,356),
 ];
 
 export default function CustomizedTables() {
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Dessert (100g serving)</StyledTableCell>
-            <StyledTableCell align="right">Calories</StyledTableCell>
-            <StyledTableCell align="right">Fat&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Carbs&nbsp;(g)</StyledTableCell>
-            <StyledTableCell align="right">Protein&nbsp;(g)</StyledTableCell>
+    <>
+
+       <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead >
+          <TableRow >
+            <StyledTableCell style={{backgroundColor: "#1976d2"}}>Dessert (100g serving)</StyledTableCell>
+            <StyledTableCell align="right" style={{backgroundColor: "#1976d2"}}>Calories</StyledTableCell>
+            <StyledTableCell align="right" style={{backgroundColor: "#1976d2"}}>Fat&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="right" style={{backgroundColor: "#1976d2"}}>Carbs&nbsp;(g)</StyledTableCell>
+            <StyledTableCell align="right" style={{backgroundColor: "#1976d2"}}>Protein&nbsp;(g)</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
+            <StyledTableRow key={row.name} >
+              <StyledTableCell component="th" scope="row" >
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="right" >{row.calories}</StyledTableCell>
+              <StyledTableCell align="right" >{row.fat}</StyledTableCell>
+              <StyledTableCell align="right" >{row.carbs}</StyledTableCell>
+              <StyledTableCell align="right" >{row.protein}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </>
   );
 }
