@@ -31,5 +31,20 @@ const userSchema = new mongoose.Schema({
     }
 }, { timestamps: true });
 
+const TeacherSchema = new mongoose.Schema({
+    id: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String
+    },
+    department: {
+        type: String
+    },
+    
+}, { timestamps: true });
+
 const UserModels = mongoose.model("User", userSchema);
-export default UserModels;
+const Teachers = mongoose.model("Teachers", TeacherSchema);
+export  {Teachers,UserModels};
