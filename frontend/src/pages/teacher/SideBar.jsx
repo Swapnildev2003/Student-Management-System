@@ -45,7 +45,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
   justifyContent: "flex-end",
 }));
@@ -124,16 +123,6 @@ export default function PersistentDrawerLeft() {
               <ListItemText primary={"Attendance"} />
             </ListItemButton>
           </ListItem>
-          {/* {["Register", "Attendance"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))} */}
         </List>
         <Divider />
         <List>
