@@ -1,7 +1,6 @@
 import React from 'react';
 
-export default function BasicModal({  setDisplayModel }) {
-
+export default function BasicModal({ setDisplayModel }) {
     const [selectedCourse, setSelectedCourse] = React.useState('');
     const [selectedYear, setSelectedYear] = React.useState('');
     const [selectedBranch, setSelectedBranch] = React.useState('');
@@ -76,79 +75,82 @@ export default function BasicModal({  setDisplayModel }) {
         setDisplayModel(false);
     };
 
-   
-
     return (
-        <div className="modal-overlay">
-            <div className="modal-content">
-                <button onClick={closeModal} className="close-button">X</button>
-                <div className='flex items-center justify-center min-h-screen'>
-                    <div className='bg-white p-6 rounded shadow-md w-1/4'>
-                        <label htmlFor="courseDropdown" className='block mb-2 text-lg font-medium text-gray-700'>
-                            Select Course:
-                        </label>
-                        <select
-                            id="courseDropdown"
-                            className='border border-gray-300 rounded p-2 w-full'
-                            value={selectedCourse}
-                            onChange={handleCourseChange}
-                        >
-                            {courses.map((course, index) => (
-                                <option key={index} value={course}>
-                                    {course}
-                                </option>
-                            ))}
-                        </select>
+        <div className="modal-overlay fixed inset-0 flex items-center justify-center  bg-opacity-50">
+            <div className="modal-content relative bg-white p-6 rounded shadow-md w-1/4">
+                {/* Close Button Inside the Modal */}
+                <button
+                    onClick={closeModal}
+                    className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                >
+                    X
+                </button>
+                <div>
+                    <label htmlFor="courseDropdown" className='block mb-2 text-lg font-medium text-gray-700'>
+                        Select Course:
+                    </label>
+                    <select
+                        id="courseDropdown"
+                        className='border border-gray-300 rounded p-2 w-full'
+                        value={selectedCourse}
+                        onChange={handleCourseChange}
+                    >
+                        {courses.map((course, index) => (
+                            <option key={index} value={course}>
+                                {course}
+                            </option>
+                        ))}
+                    </select>
 
-                        {selectedCourse && (
-                            <>
-                                <label htmlFor="yearDropdown" className='block mb-2 text-lg font-medium text-gray-700 mt-4'>
-                                    Select Year:
-                                </label>
-                                <select
-                                    id="yearDropdown"
-                                    className='border border-gray-300 rounded p-2 w-full'
-                                    value={selectedYear}
-                                    onChange={handleYearChange}
-                                >
-                                    {years.map((year, index) => (
-                                        <option key={index} value={year}>
-                                            {year}
-                                        </option>
-                                    ))}
-                                </select>
-                            </>
-                        )}
-
-                        {selectedCourse && selectedYear && branchData[selectedCourse] && (
-                            <>
-                                <label htmlFor="branchDropdown" className='block mb-2 text-lg font-medium text-gray-700 mt-4'>
-                                    Select Branch:
-                                </label>
-                                <select
-                                    id="branchDropdown"
-                                    className='border border-gray-300 rounded p-2 w-full'
-                                    value={selectedBranch}
-                                    onChange={handleBranchChange}
-                                >
-                                    <option value="" disabled>Select a branch</option>
-                                    {branchData[selectedCourse].filter(branch => branch.year === parseInt(selectedYear)).map((branch, index) => (
-                                        <option key={index} value={branch.branchName}>
-                                            {branch.branchName}
-                                        </option>
-                                    ))}
-                                </select>
-                            </>
-                        )}
-                        <div className='text-center'>
-                            <button
-                                onClick={handleSubmit}
-                                disabled={!selectedCourse || !selectedYear || !selectedBranch}
-                                className={`mt-4 w-1/2 p-2 rounded ${!selectedCourse || !selectedYear || !selectedBranch ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
+                    {selectedCourse && (
+                        <>
+                            <label htmlFor="yearDropdown" className='block mb-2 text-lg font-medium text-gray-700 mt-4'>
+                                Select Year:
+                            </label>
+                            <select
+                                id="yearDropdown"
+                                className='border border-gray-300 rounded p-2 w-full'
+                                value={selectedYear}
+                                onChange={handleYearChange}
                             >
-                                Submit
-                            </button>
-                        </div>
+                                {years.map((year, index) => (
+                                    <option key={index} value={year}>
+                                        {year}
+                                    </option>
+                                ))}
+                            </select>
+                        </>
+                    )}
+
+                    {selectedCourse && selectedYear && branchData[selectedCourse] && (
+                        <>
+                            <label htmlFor="branchDropdown" className='block mb-2 text-lg font-medium text-gray-700 mt-4'>
+                                Select Branch:
+                            </label>
+                            <select
+                                id="branchDropdown"
+                                className='border border-gray-300 rounded p-2 w-full'
+                                value={selectedBranch}
+                                onChange={handleBranchChange}
+                            >
+                                <option value="" disabled>Select a branch</option>
+                                {branchData[selectedCourse].filter(branch => branch.year === parseInt(selectedYear)).map((branch, index) => (
+                                    <option key={index} value={branch.branchName}>
+                                        {branch.branchName}
+                                    </option>
+                                ))}
+                            </select>
+                        </>
+                    )}
+
+                    <div className='text-center'>
+                        <button
+                            onClick={handleSubmit}
+                            disabled={!selectedCourse || !selectedYear || !selectedBranch}
+                            className={`mt-4 w-1/2 p-2 rounded ${!selectedCourse || !selectedYear || !selectedBranch ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500 hover:bg-blue-600 text-white'}`}
+                        >
+                            Submit
+                        </button>
                     </div>
                 </div>
             </div>
