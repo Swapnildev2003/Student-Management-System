@@ -13,7 +13,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import SideBarList from './components/SideBarList';
 import Home from './pages/Home'
-
+import { useState,useEffect } from 'react';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -94,6 +94,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
+  
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -106,7 +107,7 @@ export default function MiniDrawer() {
   };
 
   return (
-    <Box sx={{ display: 'flex', overflowY: "hidden",scrollbarWidth: "none" }}>
+    <Box sx={{ display: 'flex', overflowY: "hidden", scrollbarWidth: "none" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -136,7 +137,7 @@ export default function MiniDrawer() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <SideBarList primary={"Home"} open={open} style={{padding:0, margin:0}} />
+        <SideBarList primary={"Home"} open={open} style={{ padding: 0, margin: 0 }} />
         <SideBarList primary={"Classes"} open={open} />
         <SideBarList primary={"Subjects"} open={open} />
         <SideBarList primary={"teachers"} open={open} />
@@ -152,6 +153,8 @@ export default function MiniDrawer() {
         <DrawerHeader />
         <Home />
       </Box>
+      
     </Box>
+
   );
 }
